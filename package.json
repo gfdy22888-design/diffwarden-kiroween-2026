@@ -1,0 +1,13 @@
+{
+  "name": "diffwarden",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local-first, Halloween-themed review room for code changes",
+  "scripts": {
+    "test": "node --test",
+    "dev": "node scripts/serve.mjs",
+    "check": "node --check dist/engine.js && node --check dist/app.js"
+  },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Catch the things that haunt your next merge. A private, browser-local review room for code diffs.">
+  <meta name="theme-color" content="#151b18">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>DiffWarden — the midnight review room</title>
+  <link rel="icon" href="ghost.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to review room</a>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="DiffWarden home"><img src="ghost.svg" width="31" height="36" alt=""><span>diffwarden<span class="brand-dot">.</span></span></a>
+  <nav aria-label="Main navigation"><a class="active" href="#workspace">Review room</a><button id="rules-open" class="nav-button">Field guide <span aria-hidden="true">↗</span></button></nav>
+  <span class="private-pill"><span></span> YOUR CODE STAYS HERE</span>
+</header>
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy"><p class="eyebrow"><span class="tiny-star">✦</span> THE MIDNIGHT REVIEW ROOM <span class="edition">VOL. 01 / KIROWEEN</span></p>
+  <h1 id="hero-title">Good code.<br>Fewer <em>ghosts.</em></h1>
+  <p class="hero-description">Catch the things that haunt your next merge.<br>Drop in a diff. Find the signals. Make the call.</p>
+  <div class="hero-meta"><span><i></i> Browser-local checks</span><span>Zero accounts</span><span>Human judgment</span></div></div>
+  <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="cross cross-one">+</div><div class="cross cross-two">+</div><div class="art-label label-top">SCANNING THE UNKNOWN</div><svg class="ghost-art" viewBox="0 0 240 250"><defs><linearGradient id="ghost-fill" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#edf4cb"/><stop offset="1" stop-color="#b3c883"/></linearGradient></defs><path d="M40 210V113a80 80 0 0 1 160 0v97l-27-19-26 19-27-19-27 19-26-19Z" fill="url(#ghost-fill)"/><ellipse cx="94" cy="114" rx="10" ry="16" fill="#26362b"/><ellipse cx="147" cy="114" rx="10" ry="16" fill="#26362b"/><path d="M113 149q8 7 16 0" fill="none" stroke="#26362b" stroke-width="5" stroke-linecap="round"/><path d="M66 84q11-31 35-36" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="5" stroke-linecap="round"/></svg><div class="art-tag"><span>✦</span> A little caution goes a long way.</div><span class="art-coordinate">35° 41′ N / AFTER HOURS</span></div>
+</section>
+<section id="workspace" class="workspace" aria-labelledby="room-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / INSPECT THE CHANGE</p><h2 id="room-title">What’s lurking in your diff?</h2></div><span class="small-note">No uploads. No API keys. Just your browser.</span></div>
+  <div class="review-grid">
+  <section class="input-panel" aria-labelledby="input-title">
+    <div class="panel-heading"><h3 id="input-title"><span class="code-icon">⌘</span> The evidence</h3><span class="muted-mono">UNIFIED DIFF</span></div>
+    <div class="sample-line"><label for="sample-select">Open a case</label><select id="sample-select"><option value="haunted">The haunted release</option><option value="shell">A knock at the shell</option><option value="quiet">A quieter change</option></select><button id="load-sample" class="subtle-button">Load sample ↗</button></div>
+    <label class="visually-hidden" for="diff-input">Paste a unified code diff</label><textarea id="diff-input" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Paste the output of git diff here…" maxlength="250001"></textarea>
+    <div class="input-bottom"><span id="char-count" class="muted-mono">0 / 250k characters</span><div><button id="clear-input" class="subtle-button">Clear</button><label class="file-label" for="diff-file">Import .diff <span aria-hidden="true">↗</span></label><input id="diff-file" type="file" accept=".diff,.patch,.txt" hidden></div></div>
+    <div class="scan-footer"><div><strong>Keep your secrets close.</strong><p>The diff stays in memory. Refresh to clear it.</p></div><button id="scan" class="primary-button">Inspect change <span aria-hidden="true">→</span></button></div>
+    <p id="input-error" class="error" role="alert" hidden></p>
+  </section>
+  <aside class="brief-panel" aria-labelledby="brief-title"><div class="panel-heading"><h3 id="brief-title">Tonight’s briefing</h3><span class="status-dot"></span></div>
+    <div class="brief-number"><span id="signal-count">—</span><div>signals in the shadows<small id="brief-subtitle">Your next review starts here</small></div></div>
+    <div class="severity-grid"><div><span class="severity-dot high"></span><strong id="high-count">—</strong><small>High</small></div><div><span class="severity-dot medium"></span><strong id="medium-count">—</strong><small>Medium</small></div><div><span class="severity-dot low"></span><strong id="low-count">—</strong><small>Low</small></div></div>
+    <div class="review-progress"><div><span>Human review</span><strong id="review-count">Not started</strong></div><progress id="review-progress" max="1" value="0" aria-label="Signals marked reviewed"></progress></div>
+    <div class="brief-note"><span aria-hidden="true">✳</span><p>A signal is a reason to look closer. It isn’t proof of a bug, and a quiet scan isn’t a green light to merge.</p></div>
+    <button id="export" class="outline-button" disabled>Export review <span aria-hidden="true">↓</span></button>
+  </aside></div>
+</section>
+<section id="results-section" class="results-section" aria-labelledby="results-title" hidden>
+  <div class="section-heading"><div><p class="eyebrow">02 / FOLLOW THE SIGNALS</p><h2 id="results-title">A few things worth a second look.</h2></div><span id="change-stats" class="small-note"></span></div>
+  <div id="warnings" class="warnings" role="status" hidden></div>
+  <div class="results-layout"><aside class="findings-list"><div class="filter-row" role="group" aria-label="Filter findings"><button data-filter="all" class="filter active" aria-pressed="true">All</button><button data-filter="high" class="filter" aria-pressed="false">High</button><button data-filter="security" class="filter" aria-pressed="false">Security</button><button data-filter="testing" class="filter" aria-pressed="false">Tests</button></div><div id="findings"></div></aside>
+  <article id="finding-detail" class="finding-detail" aria-live="polite"></article></div>
+  <details class="diff-browser"><summary>Explore the parsed diff <span id="file-count"></span></summary><div id="file-diffs"></div></details>
+</section>
+<section class="principles"><div class="principle-intro"><p class="eyebrow">A CALMER KIND OF CODE REVIEW</p><h2>Leave the jump scares<br>to the movies.</h2></div><div><span class="principle-number">01</span><h3>Keep it close.</h3><p>No network requests from the review code. Your input stays in this tab’s memory.</p></div><div><span class="principle-number">02</span><h3>Show the evidence.</h3><p>Every signal points to an added line, explains the pattern, and gives you a next step.</p></div><div><span class="principle-number">03</span><h3>You make the call.</h3><p>Record what you checked. Export a review. Keep the final decision human.</p></div></section>
+</main>
+<footer><a class="brand" href="./"><img src="ghost.svg" width="23" height="27" alt=""><span>diffwarden.</span></a><span>Built for the things you almost missed.</span><span class="footer-edition">KIROWEEN 2026 / COSTUME CONTEST</span></footer>
+<dialog id="guide"><div class="dialog-top"><p class="eyebrow">THE FIELD GUIDE</p><button id="rules-close" class="close-button" aria-label="Close field guide">×</button></div><h2>Know your ghosts.</h2><p>DiffWarden runs nine local, line-based pattern checks on <strong>added lines</strong> in a unified text diff. It doesn’t execute code or understand full data flow.</p><div id="rule-list"></div><div class="guide-limit"><h3>Where the lantern doesn’t reach</h3><p>Multi-line expressions, dependencies, removed safeguards, binary files and combined merge diffs need other tools and human review. Comments are skipped except unfinished-work markers. Strings may match patterns. Malformed hunks produce a warning. This is an early review aid, not a security audit.</p><p>Diffs, findings and notes remain in memory and are lost on refresh. Reports omit source snippets but include file paths and your notes.</p></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>
