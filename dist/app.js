@@ -113,7 +113,7 @@ function inspect(scroll = true) {
     document.querySelectorAll('[data-filter]').forEach(button => { const active = button.dataset.filter === filter; button.classList.toggle('active',active); button.setAttribute('aria-pressed',String(active)); });
     counts(); renderList(); renderDetail(); renderDiffs();
     $('results-title').textContent = result.findings.length ? 'A few things worth a second look.' : 'The patterns are quiet tonight.';
-    $('change-stats').textContent = `${result.files.length} files · +${result.additions} / −${result.deletions} lines · ${result.rulesRun} checks`;
+    $('change-stats').textContent = `${result.files.length} ${result.files.length === 1 ? 'file' : 'files'} · +${result.additions} / −${result.deletions} lines · ${result.rulesRun} checks`;
     $('warnings').textContent = result.warnings.join(' '); $('warnings').hidden = !result.warnings.length;
     $('results-section').hidden = false;
     if (scroll) { $('results-section').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' }); toast(`${result.findings.length} review signals found. Your code stayed in this tab.`); }

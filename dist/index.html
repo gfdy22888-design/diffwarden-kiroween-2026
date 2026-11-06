@@ -29,7 +29,7 @@
   <div class="review-grid">
   <section class="input-panel" aria-labelledby="input-title">
     <div class="panel-heading"><h3 id="input-title"><span class="code-icon">⌘</span> The evidence</h3><span class="muted-mono">UNIFIED DIFF</span></div>
-    <div class="sample-line"><label for="sample-select">Open a case</label><select id="sample-select"><option value="haunted">The haunted release</option><option value="shell">A knock at the shell</option><option value="quiet">A quieter change</option></select><button id="load-sample" class="subtle-button">Load sample ↗</button></div>
+    <div class="sample-line"><label for="sample-select">Open a case</label><select id="sample-select" aria-label="Open a case"><option value="haunted">The haunted release</option><option value="shell">A knock at the shell</option><option value="quiet">A quieter change</option></select><button id="load-sample" class="subtle-button">Load sample ↗</button></div>
     <label class="visually-hidden" for="diff-input">Paste a unified code diff</label><textarea id="diff-input" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Paste the output of git diff here…" maxlength="250001"></textarea>
     <div class="input-bottom"><span id="char-count" class="muted-mono">0 / 250k characters</span><div><button id="clear-input" class="subtle-button">Clear</button><label class="file-label" for="diff-file">Import .diff <span aria-hidden="true">↗</span></label><input id="diff-file" type="file" accept=".diff,.patch,.txt" hidden></div></div>
     <div class="scan-footer"><div><strong>Keep your secrets close.</strong><p>The diff stays in memory. Refresh to clear it.</p></div><button id="scan" class="primary-button">Inspect change <span aria-hidden="true">→</span></button></div>

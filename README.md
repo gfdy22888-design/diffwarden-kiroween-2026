@@ -4,10 +4,16 @@ A local-first, Halloween-themed code-diff review aid, created for Kiroween 2026'
 Costume Contest. Paste a unified diff, inspect explainable added-line patterns,
 record what you reviewed and export a source-snippet-free Markdown report.
 
-**Status:** working source prototype with 17 automated engine tests. Kiro account
-authentication and substantive Kiro contributions, browser QA, public judge
-access, public GitHub publication, demo recording and Devpost submission remain
-unverified. This repository is not evidence of a completed competition entry.
+**Status:** public working prototype with 17 passing engine tests. Browser checks
+verified sample inspection, human review state, report download, zero-match
+messaging, literal HTML rendering and a narrow-screen stacked layout. Kiro
+authentication and substantive Kiro contributions, demo recording and Devpost
+submission remain pending. This is not a completed competition entry.
+
+- [Open the public demo](https://gfdy22888-design.github.io/diffwarden-kiroween-2026/dist/)
+- [Public GitHub source](https://github.com/gfdy22888-design/diffwarden-kiroween-2026)
+- [Actual browser screenshot](docs/screenshots/browser-proof.png)
+- [Acceptance record and remaining work](docs/ACCEPTANCE.md)
 
 ## Run
 

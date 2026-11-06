@@ -38,16 +38,19 @@ Replace this section with verified substantive Kiro development before entry.
 Insufficient Kiro usage can disqualify the project.
 
 ## Validation and limitations
-Initial parser/rule/export tests pass. Browser interaction and responsive layout
-checks are pending. Rules are single-line heuristics, not verified vulnerability
+17 parser/rule/export tests pass. Browser checks verified sample inspection,
+review flags, report download, zero-match messages, literal HTML rendering and a
+narrow-screen stacked layout. Rules are single-line heuristics, not verified vulnerability
 detection. They can miss multiline patterns and match benign strings. Removed
 safeguards and binary changes need separate review. No quantitative security
 accuracy or production-use claim is made.
 
-## Required links — pending
-- Public GitHub repository with MIT license and committed .kiro directory.
-- Working app URL accessible to judges.
-- Real public YouTube demo under three minutes.
+## Required links
+- Public GitHub repository with MIT license and committed .kiro directory:
+  https://github.com/gfdy22888-design/diffwarden-kiroween-2026
+- Working app URL, verified without an account:
+  https://gfdy22888-design.github.io/diffwarden-kiroween-2026/dist/
+- Real public YouTube demo under three minutes: still pending.
 
 Do not submit this draft until the required links, actual Kiro work and browser
 acceptance are verified. No private account identifiers belong in public text.

@@ -6,7 +6,7 @@
 - [ ] Authenticate the official Kiro CLI with the user's account.
 - [ ] Have Kiro audit incomplete-diff handling, input rendering and report output.
 - [ ] Apply substantive Kiro contributions; retain actual evidence and rerun checks.
-- [ ] Verify browser workflows and mobile layout.
-- [ ] Publish a working judge-accessible app and public GitHub repository.
+- [x] Verify sample inspection, review flags, export, literal HTML rendering and narrow-screen layout in the browser.
+- [x] Publish a working judge-accessible app and public GitHub repository.
 - [ ] Record and publicly upload a real demo under three minutes to YouTube.
 - [ ] Complete Devpost submission and verify submitted state.
